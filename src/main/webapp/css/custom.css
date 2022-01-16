@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+
+.navbar-brand, h1, h2, h3, h4 {
+	font-family: 'Noto Sans KR';
+}
+h5 {
+	font-family: 'Noto Sans KR';
+	font-size: 18px;
+}
+body {
+	font-family: 'Nanum Gothic';
+	margin: 0;
+}
+div {
+    box-sizing: border-box;
+}
+
+/* Modal-Login */
+.black-bg {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-1000px);
+    transition: all 1s;
+}
+.white-bg {
+    background: white;
+    border-radius: 5px;
+    width: 60%;
+    max-width:560px;
+    margin: auto;
+    margin-top: 10%;
+    padding: 20px;
+}
+.slide-down {
+    transform: translateY(0);
+}
+
+/* side-nav */
+.side-nav {
+    width: 215px;
+    height: 100%;
+    position: fixed;
+    z-index: 4;
+    right: 0;
+    background: black;
+    color: white;
+    transform: translateX(215px);
+    transition: transform 0.4s;
+}
+.x-box {
+    height: 54px;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid white;
+}
+.x {
+    width: 30px;
+    height: 30px;
+    background: gray;
+	padding-left: 8px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+.x:hover {
+    background: blue;
+}
+.side-nav ul {
+    padding: 0;
+}
+.side-nav li {
+    padding: 15px 20px;
+    border-bottom: 1px solid darkgray;  
+}
+.side-nav li a {
+    color: white;
+    transition: all 0.4s;
+}
+.side-nav li:hover a {
+    padding-left: 15px;
+}
+.side-nav i {
+    margin-right: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* main-nav */
+nav {
+    width: 100%;
+    height: 70px;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    padding: 17px;
+    z-index: 3;
+    transition: all 0.5s;
+}
+nav a {
+    color: black;
+}
+nav ul {
+    padding: 0;
+}
+nav li {
+    display: inline-block;
+    margin: 0 4px;
+    font-size: 16px;
+    font-weight:bold;
+}
+.large-logo {
+    font-size: 30px;
+    margin: 0;
+    font-weight:bold;
+}
+.side-control i {
+    display: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+.side-control i:hover {
+    transform: scale(1.2);
+}
+
+.nav-black {
+    transition: all 0.5s;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px;
+}
+.small-logo {
+    font-size: 26px;
+    transition: all 0.5s;
+}
+
+.slide-container {
+    width: 400vw;
+    height: 600px;
+    padding-top: 55px;
+    transform: translateX(0px);
+}
+.slide-box {
+    width: 100vw;
+    height: 100%;
+    background-image: url('../img/mainIMG.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+
+}
+.transforming{
+    transition: transform 1s;
+}
+.slide-box a:hover {
+    animation-name: shaking;
+    animation-duration: 1s;
+}
+.slide-btn {
+    position: absolute;
+    bottom: 50px;
+    left: 120px;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+.slide-btn span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    display: inline-block;
+    text-indent: 9999px;
+}
+.slide-pre {
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    color: black;
+    font-size: 20px;
+}
+.slide-next {
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    color: black;
+    font-size: 20px;
+}
+
+.purpose {
+    margin: auto;
+}
+.purpose-list i {
+    font-size: 40px;
+    width: 100px;
+    height: 100px;
+    background: #444;
+    color: white;
+    padding-top: 30px;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.advantage-box {
+    width: 100%;
+    height: 227.5px;
+    max-width:350px;
+    position: relative;
+    transition: all 1s;
+    transform-style: preserve-3d;
+    margin: auto;
+}
+.advantage-box:hover {
+    transform: rotateY(180deg);
+}
+
+.advantage-box img {
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px;
+}
+.front {
+    position: absolute;
+    backface-visibility: hidden;
+}
+.back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: rotateY(180deg);
+    text-align: center;
+    background: #eee;
+    border-radius: 10px;
+    padding-top: 10px;
+    box-shadow: 5px 5px 5px;
+}
+@media screen and (max-width:1199px) {
+	.back{
+		height:188.5px;
+	}
+}
+
+@media screen and (max-width:991px) {
+	.back{
+		height:227.5px;
+	}
+}
+
+@media screen and (max-width:768px) {
+    .slide-container {
+        height: 550px;
+    }
+    .nav-list {
+        display: none;
+    }
+    .side-control i {
+        display: inline-block;
+    } 
+
+}
+
+@keyframes shaking {
+    0% {
+        transform: rotate(0);
+    }
+    20% {
+        transform: rotate(-20deg);
+    }
+    40% {
+        transform: rotate(20deg);
+    }
+    60% {
+        transform: rotate(-15deg);
+    }
+    80% {
+        transform: rotate(15deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
