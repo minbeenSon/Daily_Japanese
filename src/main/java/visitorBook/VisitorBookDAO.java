@@ -129,7 +129,7 @@ public class VisitorBookDAO {
 	
 	//Delete visitorBook
 	public int delete (String visitorBookID) {
-		String SQL = " DELETE FROM VISITORBOOK WHERE visitorBookID = ?";
+		String SQL = "DELETE FROM VISITORBOOK WHERE visitorBookID = ?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -146,5 +146,24 @@ public class VisitorBookDAO {
 			try {if (rs != null) rs.close();} catch (Exception e) {e.printStackTrace();}
 		}
 		return -1; //Fail delete
+	}
+	public int deleteLikey (String visitorBookID) {
+		String SQL = "DELETE FROM LIKEY WHERE visitorBookID = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, Integer.parseInt(visitorBookID));
+			return pstmt.executeUpdate(); //1, Success likey
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {if (conn != null) conn.close();} catch (Exception e) {e.printStackTrace();}
+			try {if (pstmt != null) pstmt.close();} catch (Exception e) {e.printStackTrace();}
+			try {if (rs != null) rs.close();} catch (Exception e) {e.printStackTrace();}
+		}
+		return -1; //fail likey
 	}
 }

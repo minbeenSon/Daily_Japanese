@@ -132,24 +132,56 @@
     </script>
     
     <section class="container" style="padding-top:100px; max-width:560px;">
-    	<form method="post" action="./userRegisterAction.jsp">
+    	<form id="joinForm" method="post" action="./userRegisterAction.jsp" >
 			<div class="form-group">
 				<label>ID</label>
-				<input type="text" name="userID" class="form-control" maxlength="30">
+				<input type="text" name="userID" class="form-control joinID" maxlength="30">
+				<p id="IDAlert" style="color: red; display:none;">Please start with English and write at least 6 letters in English and numbers.</p>
 			</div>
 			<div class="form-group">
 				<label>Password</label>
-				<input type="password" name="userPassword" class="form-control" maxlength="30">
+				<input type="password" name="userPassword" class="form-control joinPassword" maxlength="30">
+				<p id="passwordAlert" style="color: red; display:none;">Please write at least 8 letters in English and numbers.</p>
 			</div>
 			<div class="form-group">
 				<label>E-mail</label>
-				<input type="email" name="userEmail" class="form-control" maxlength="30">
+				<input type="email" name="userEmail" class="form-control joinEmail" maxlength="30">
+				 <p id="emailAlert" style="color: red; display:none;">Please write your right E-mail.</p>
 			</div>
 			<button type="submit" class="btn btn-primary">Join</button>
 		</form>
-    </section>
+    </section> 
 
-
+	<script type="text/javascript">
+    	$('#joinForm').on('submit', function(e) {
+    		var IDExp = /^[a-z]+[a-z0-9]{5,19}$/g;
+    		var writtenID = $('.joinID').val();
+    		if (writtenID == "" || IDExp.test(writtenID) == false) {
+    			e.preventDefault();
+           		$('#IDAlert').show();
+    		} else {
+    			$('#IDAlert').hide();
+    		}
+    		
+    		var passwordExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
+           	var writtenPassword = $('.joinPassword').val();
+           	if (writtenPassword =="" || passwordExp.test(writtenPassword) == false) {
+           		e.preventDefault();
+           		$('#passwordAlert').show();
+           	} else {
+    			$('#passwordAlert').hide();
+    		}
+           	
+    		var emailExp = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/;
+            var writtenEmail = $('.joinEmail').val();
+            if (writtenEmail == "" || emailExp.test(writtenEmail) == false) {
+            	e.preventDefault();
+            	$('#emailAlert').show();
+            } else {
+    			$('#emailAlert').hide();
+    		}
+    	})
+    </script>
 
 	<footer class="bg-dark mt-4 p-5 text-center" style="color:#FFFFFF;">
 		Copyright &copy; 2021 손민빈 All Rights Reserved.

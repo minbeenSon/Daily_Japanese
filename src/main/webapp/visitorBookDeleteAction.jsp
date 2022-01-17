@@ -26,13 +26,25 @@
 	if (userID.equals(visitorBookDAO.getUserID(visitorBookID))) {
 		int result = new VisitorBookDAO().delete(visitorBookID);
 		if (result == 1) {
-			PrintWriter script = response.getWriter();
-			script.println("<script>");
-			script.println("alert('Success delete.');");
-			script.println("location.href = 'visitorBook.jsp'");
-			script.println("</script>");
-			script.close();
-			return;
+			int result2 = new VisitorBookDAO().deleteLikey(visitorBookID);
+			if (result2 == 1) {
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("alert('Success delete.');");
+				script.println("location.href = 'visitorBook.jsp'");
+				script.println("</script>");
+				script.close();
+				return;
+			} else {
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("alert('Error of Database2');");
+				script.println("history.back();");
+				script.println("</script>");
+				script.close();
+				return;
+			}
+			
 		} else {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");

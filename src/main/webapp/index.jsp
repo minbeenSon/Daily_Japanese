@@ -87,7 +87,7 @@
     
     <script type="text/javascript"> 
 
-        //Moda Login
+        //Modal Login
         $('#login').click(function () {
             $('.black-bg').addClass('slide-down');
         })
